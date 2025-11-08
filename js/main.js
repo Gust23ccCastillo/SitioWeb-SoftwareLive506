@@ -64,14 +64,15 @@ $(document).ready(function() {
         }, 300);
     });
 
-    // Mostrar/ocultar menú móvil
-    $('.show-close-menu-m').on('click', function(e) {
-        e.preventDefault();
-        var menu = $('.navigation');
-        if (menu.hasClass('show-nav-m')) {
-            menu.removeClass('show-nav-m');
-        } else {
-            menu.addClass('show-nav-m');
-        }
-    });
+   // Mostrar/ocultar menú móvil
+$('.show-close-menu-m').on('click', function(e) {
+    e.preventDefault();
+    var menu = $('.navigation');
+    if (menu.hasClass('show-nav-m')) {
+        menu.removeClass('show-nav-m');
+    } else {
+        menu.addClass('show-nav-m');
+    }
+});
+
 });

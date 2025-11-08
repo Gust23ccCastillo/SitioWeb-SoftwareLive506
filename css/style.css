@@ -430,6 +430,75 @@ video{
 /*=======================================================================================================
 =                                        Media queries                                                  =
 ========================================================================================================*/
+/*========================================================================================
+    REGLAS PARA EL MENÚ MÓVIL (Menor a 768px)
+==========================================================================================*/
+
+/* Ocultar la navegación principal en móviles por defecto */
+@media (max-width: 767px) {
+    .navigation {
+        position: fixed; /* Fija el menú para que cubra toda la pantalla */
+        top: 0;
+        right: -300px; /* Posiciona el menú fuera de la pantalla (oculto) */
+        width: 250px;
+        height: 100%;
+        background-color: #333; /* Fondo oscuro para el menú móvil */
+        z-index: 9999; /* Asegura que esté por encima de todo */
+        transition: right 0.3s ease-in-out; /* Animación de entrada/salida */
+    }
+    
+    /* Regla que se aplica cuando el JS añade la clase: MUESTRA EL MENÚ */
+    .navigation.show-nav-m {
+        right: 0; /* Desliza el menú para que sea visible */
+    }
+
+    /* Estilos para los enlaces dentro del menú móvil */
+    .navigation ul {
+        display: block;
+        padding-top: 60px; /* Espacio para que no toque el borde superior */
+        margin: 0;
+    }
+
+    .navigation ul li {
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navigation ul li a {
+        padding: 15px 20px;
+        display: block;
+        color: #fff;
+        text-align: left;
+        font-size: 16px;
+    }
+
+    .navigation ul li a:hover {
+        background-color: #555;
+    }
+    
+    /* Muestra el botón de menú móvil */
+    .button-menu-mobile {
+        display: block !important; /* Sobreescribe hidden-sm, hidden-md, etc. */
+        font-size: 24px;
+        color: #333;
+        line-height: 50px;
+        margin-right: 15px;
+    }
+}
+
+/* Reglas para Tabletas y Escritorio (donde la navegación es horizontal) */
+@media (min-width: 768px) {
+    /* Asegurar que la navegación esté en su posición normal y horizontal */
+    .navigation {
+        position: relative;
+        /* Otras reglas de display: inline-block o flex que tengas */
+    }
+    
+    /* Ocultar el botón de menú móvil en escritorio */
+    .button-menu-mobile {
+        display: none !important;
+    }
+}
 
 /* col-xs */
 @media (max-width: 767px) {
