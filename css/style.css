@@ -1,5 +1,5 @@
 /*=======================================================================================================
-=                                           Estilos generales                                            =
+= Estilos generales =
 ========================================================================================================*/
 html, body {
     height: 100%;
@@ -363,26 +363,58 @@ video{
     height: 500px;
     border-radius: 4px;
 }
+/* /=======================================================================================================
+=                                         NUEVOS ESTILOS PARA PRODUCTOS                                =
+========================================================================================================*/
+
+/* Contenedor principal para la imagen y el texto (aplica en todas las resoluciones) */
+.item-container {
+    /* Usamos Flexbox para alinear la imagen y el texto horizontalmente */
+    display: flex;
+    align-items: flex-start; /* Alineación al inicio (arriba) */
+    gap: 20px; /* Espacio entre la imagen y el texto */
+    padding: 15px; /* Padding interno para que no se pegue al borde del panel */
+}
+
+.item-image {
+    /* Define un ancho fijo para la imagen en desktop/tablet */
+    max-width: 180px; 
+    width: 100%;
+    height: auto; 
+    border-radius: 6px; 
+    flex-shrink: 0; /* Asegura que la imagen no se encoja en pantallas grandes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añadir una sombra sutil */
+}
+
+.text-content {
+    /* El texto ocupa el espacio restante */
+    flex-grow: 1;
+}
+
+/* Ajuste general del texto */
+.panel-body p.lead {
+    margin-top: 0; /* Elimina el margen superior excesivo de Bootstrap */
+}
+
+
 /* ... Estilos galeria (sin cambios) ... */
 /*=======================================================================================================
-=                                           Media queries                                                =
+=                                           Media queries                                                =
 ========================================================================================================*/
 
 /* Reglas para Tabletas y Escritorio (Desktop) */
 @media (min-width: 768px) {
-    /* Asegurar que la navegación esté en su posición normal y horizontal */
+    /* ... (Estilos de desktop sin cambios) ... */
     .navigation {
         position: relative;
         display: block !important;
         height: 50px;
     }
     
-    /* Mostrar elementos del menú en línea en desktop */
     .navigation ul li {
         display: inline-block;
     }
 
-    /* Ocultar el botón de menú móvil en escritorio */
     .button-menu-mobile {
         display: none !important;
     }
@@ -394,22 +426,19 @@ video{
         background-attachment: inherit;
     }
 
-    /* <<<< CAMBIO CLAVE 3: Mostrar el botón móvil >>>> */
+    /* ... (Estilos de header y nav móvil sin cambios) ... */
     .button-menu-mobile {
         display: block !important;
     }
 
-    /* Asegurar que el logo y el botón estén alineados */
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
     .logo {
-        width: auto; /* Dejar que el logo tome su ancho natural */
+        width: auto; 
     }
-
-    /* Estilos de la navegación (Oculta por defecto en mobile) */
     .navigation{
         height: 0;
         width: 100%;
@@ -426,12 +455,10 @@ video{
         z-index: 99;
         flex-grow: unset;
     }
-
-    /* <<<< CLASE USADA POR JS para MOSTRAR el menú móvil >>>> */
     .show-navigations{
         pointer-events: auto;
         opacity: 1;
-        height: auto !important; /* Ahora se mostrará verticalmente */
+        height: auto !important; 
     }
     .navigation ul{
         height: auto;
@@ -440,7 +467,7 @@ video{
         text-align: left;
     }
     .navigation ul li{
-        display: block; /* Muestra los elementos verticalmente */
+        display: block; 
         height: auto;
         padding: 0;
     }
@@ -479,10 +506,32 @@ video{
     .mega-menu ul{
         margin-bottom: 25px;
     }
+    
+    /* ================================================= */
+    /* <<<< AJUSTE PARA PRODUCTOS EN MÓVIL >>>> */
+    /* Mantenemos Flexbox, pero reducimos la imagen para dar espacio al texto */
+    /* Usamos el padding horizontal del .container (Bootstrap) para evitar que se pegue demasiado */
+    
+    .item-container {
+        /* No cambiamos a columna, mantenemos row, pero reducimos la imagen */
+        flex-direction: row; 
+        align-items: flex-start;
+        /* Reducimos el espacio entre elementos para pantallas muy pequeñas */
+        gap: 10px; 
+        padding: 10px;
+    }
+    
+    .item-image {
+        /* Reducimos el tamaño de la imagen para que el texto fluya mejor */
+        max-width: 100px; 
+        /* Aseguramos que la imagen no ocupe más espacio del necesario */
+    }
+
 }
 
 /* col-sm (sin cambios) */
 @media (min-width: 768px) and (max-width: 991px) {
+    /* ... (Estilos de tablet sin cambios) ... */
     h1{
         font-size: 25px;
     }
@@ -502,6 +551,7 @@ video{
 
 /* col-md (sin cambios) */
 @media (min-width: 992px) and (max-width: 1199px) {
+    /* ... (Estilos de desktop medio sin cambios) ... */
     .navigation{
         width: 64%;
     } 
@@ -516,6 +566,7 @@ video{
 
 /* col-lg (sin cambios) */
 @media (min-width: 1200px) {
+    /* ... (Estilos de desktop grande sin cambios) ... */
     .navigation{
         width: 60%;
     } 
