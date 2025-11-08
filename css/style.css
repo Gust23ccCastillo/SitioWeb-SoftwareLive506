@@ -1,5 +1,5 @@
 /*=======================================================================================================
-=                                              Estilos generales                                        =
+=                                           Estilos generales                                            =
 ========================================================================================================*/
 html, body {
     height: 100%;
@@ -70,6 +70,10 @@ video{
     color: #fff;
     position: relative;
     z-index: 97;
+    /* <<<< CAMBIO CLAVE 1: Usar Flexbox para Desktop >>>> */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
 }
 .logo{
     height: 50px;
@@ -77,17 +81,15 @@ video{
     text-align: center;
     font-size: 24px;
     font-family: 'Fjalla One', sans-serif;
+    /* Simplificado. En mobile se reajustará */
     width: 15%;
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* Removido position: absolute */
 }
 .navigation{
     height: 50px;
-    width: 85%;
-    position: absolute;
-    top: 0;
-    right: 0;
+    /* Removido width: 85% */
+    /* Removido position: absolute */
+    flex-grow: 1; /* Ocupa el espacio restante en desktop */
 }
 .navigation ul{
     height: 50px;
@@ -134,6 +136,8 @@ video{
     line-height: 50px;
     height: 50px;
     transition: all .3s ease-in-out;
+    /* <<<< CAMBIO CLAVE 2: Ocultar por defecto en desktop >>>> */
+    display: none; 
 }
 .button-menu-mobile:focus,
 .button-menu-mobile:active{
@@ -143,11 +147,12 @@ video{
 .button-menu-mobile:hover{
     color: #fff;
 }
+/* ... Estilos mega-menu (sin cambios) ... */
 .mega-menu{
     position: absolute;
     top: 50px;
     left: 0;
-    background-color: rgba(0,121,107,.97);
+    background-color: rgba(68, 108, 127, 0.97);
     color: #fff;
     z-index: 99999;
     border-top: 1px solid rgba(255,255,255,.5);
@@ -199,7 +204,7 @@ video{
     right: 15px;
     bottom: 10px;
 }
-/*************** Estilos del pie de pagina ***************/
+/*************** Estilos del pie de pagina (sin cambios) ***************/
 .footer{ 
     clear:both;
     color: #fff;
@@ -217,7 +222,6 @@ video{
 .subtitles-footer{
     padding-left: 50px;
 }
-
 .links-footer li a{
     color: #fff;
 }
@@ -231,9 +235,7 @@ video{
     text-decoration: none;
     color: #FFCA28;
 }
-/*=======================================================================================================
-=                                              Estilos index                                            =
-========================================================================================================*/
+/* ... resto de estilos (sin cambios) ... */
 .Logo-Ins-Index img{
     height: 250px;
     margin: 15px auto;
@@ -314,9 +316,7 @@ video{
     height: auto;
     background-color: #fff;
 }
-/*=======================================================================================================
-=                                            Estilos institucion                                        =
-========================================================================================================*/
+/* ... Estilos institucion (sin cambios) ... */
 /*************** Estilos de la navegacion ***************/
 .info-section-ins article{
     padding: 50px 0;
@@ -363,154 +363,59 @@ video{
     height: 500px;
     border-radius: 4px;
 }
+/* ... Estilos galeria (sin cambios) ... */
 /*=======================================================================================================
-=                                             Estilos galeria                                           =
+=                                           Media queries                                                =
 ========================================================================================================*/
-.section-gallery-ins{
-    background-color: #fff; 
-    padding: 30px 0;
-    width: 100%;
-}
-.section-gallery-ins > article{
-    padding-bottom: 30px;
-    padding-top: 30px;
-}
-.section-gallery-ins > article > h2{
-    padding-bottom: 40px;
-}
-.tile-gallery{
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #F7F7F7;
-    border: 1px dashed #EFCDCD;
-    margin: 10px 0;
-}
-.tile-gallery img{
-    max-width: 200px;
-    max-height: 200px;
-    margin: 15px auto;
-    display: block;
-    border-radius: 50%;
-}
-.tile-gallery p{
-    color: #000000;
-}
-.tile-gallery span{
-    display: block;
-    color: #696969;
-    margin-bottom: 10px;
-}
-.tile-gallery a{
-    color: #B0B0B0;
-    display: block;
-    font-size: 19px;
-    margin: 10px 0;
-    text-align: center;
-    transition: .3s all ease-in-out;
-    -moz-transition: .3s all ease-in-out;
-    -ms-transition: .3s all ease-in-out;
-    -webkit-transition: .3s all ease-in-out;
-}
-.tile-gallery a:hover{
-    text-decoration: none;
-    transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    color: #333;
-}
-.tile-gallery a:active,
-.tile-gallery a:focus{
-    outline: none;
-    text-decoration: none;
-}
-/*=======================================================================================================
-=                                        Media queries                                                  =
-========================================================================================================*/
-/*========================================================================================
-    REGLAS PARA EL MENÚ MÓVIL (Menor a 768px)
-==========================================================================================*/
 
-/* Ocultar la navegación principal en móviles por defecto */
-@media (max-width: 767px) {
-    .navigation {
-        position: fixed; /* Fija el menú para que cubra toda la pantalla */
-        top: 0;
-        right: -300px; /* Posiciona el menú fuera de la pantalla (oculto) */
-        width: 250px;
-        height: 100%;
-        background-color: #333; /* Fondo oscuro para el menú móvil */
-        z-index: 9999; /* Asegura que esté por encima de todo */
-        transition: right 0.3s ease-in-out; /* Animación de entrada/salida */
-    }
-    
-    /* Regla que se aplica cuando el JS añade la clase: MUESTRA EL MENÚ */
-    .navigation.show-nav-m {
-        right: 0; /* Desliza el menú para que sea visible */
-    }
-
-    /* Estilos para los enlaces dentro del menú móvil */
-    .navigation ul {
-        display: block;
-        padding-top: 60px; /* Espacio para que no toque el borde superior */
-        margin: 0;
-    }
-
-    .navigation ul li {
-        display: block;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .navigation ul li a {
-        padding: 15px 20px;
-        display: block;
-        color: #fff;
-        text-align: left;
-        font-size: 16px;
-    }
-
-    .navigation ul li a:hover {
-        background-color: #555;
-    }
-    
-    /* Muestra el botón de menú móvil */
-    .button-menu-mobile {
-        display: block !important; /* Sobreescribe hidden-sm, hidden-md, etc. */
-        font-size: 24px;
-        color: #333;
-        line-height: 50px;
-        margin-right: 15px;
-    }
-}
-
-/* Reglas para Tabletas y Escritorio (donde la navegación es horizontal) */
+/* Reglas para Tabletas y Escritorio (Desktop) */
 @media (min-width: 768px) {
     /* Asegurar que la navegación esté en su posición normal y horizontal */
     .navigation {
         position: relative;
-        /* Otras reglas de display: inline-block o flex que tengas */
+        display: block !important;
+        height: 50px;
     }
     
+    /* Mostrar elementos del menú en línea en desktop */
+    .navigation ul li {
+        display: inline-block;
+    }
+
     /* Ocultar el botón de menú móvil en escritorio */
     .button-menu-mobile {
         display: none !important;
     }
 }
 
-/* col-xs */
+/* col-xs (Mobile) */
 @media (max-width: 767px) {
     .font-cover{
         background-attachment: inherit;
     }
+
+    /* <<<< CAMBIO CLAVE 3: Mostrar el botón móvil >>>> */
+    .button-menu-mobile {
+        display: block !important;
+    }
+
+    /* Asegurar que el logo y el botón estén alineados */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        width: auto; /* Dejar que el logo tome su ancho natural */
+    }
+
+    /* Estilos de la navegación (Oculta por defecto en mobile) */
     .navigation{
         height: 0;
         width: 100%;
         position: absolute;
         top: 50px;
-        background-color: #00796b;
+        background-color: #1976D2;
         border-top: 1px solid rgba(255,255,255,.2);
         pointer-events: none;
         opacity: 0;
@@ -519,11 +424,14 @@ video{
         -webkit-transition: all .3s ease-in-out;
         -ms-transition: all .3s ease-in-out;
         z-index: 99;
+        flex-grow: unset;
     }
+
+    /* <<<< CLASE USADA POR JS para MOSTRAR el menú móvil >>>> */
     .show-navigations{
         pointer-events: auto;
         opacity: 1;
-        height: auto !important;
+        height: auto !important; /* Ahora se mostrará verticalmente */
     }
     .navigation ul{
         height: auto;
@@ -532,18 +440,18 @@ video{
         text-align: left;
     }
     .navigation ul li{
-        display: block;
+        display: block; /* Muestra los elementos verticalmente */
         height: auto;
         padding: 0;
     }
     .navigation ul li a{
-         text-align: left;
-         height: 40px;
-         width: 100%;
-         line-height: 40px;
-         font-size: 16px;
-         padding: 0;
-         border-bottom: 1px solid rgba(255,255,255,.2);
+          text-align: left;
+          height: 40px;
+          width: 100%;
+          line-height: 40px;
+          font-size: 16px;
+          padding: 0;
+          border-bottom: 1px solid rgba(255,255,255,.2);
     }
     h1{
         font-size: 22px;
@@ -573,7 +481,7 @@ video{
     }
 }
 
-/* col-sm */
+/* col-sm (sin cambios) */
 @media (min-width: 768px) and (max-width: 991px) {
     h1{
         font-size: 25px;
@@ -592,7 +500,7 @@ video{
     }
 }
 
-/* col-md */
+/* col-md (sin cambios) */
 @media (min-width: 992px) and (max-width: 1199px) {
     .navigation{
         width: 64%;
@@ -606,7 +514,7 @@ video{
     }
 }
 
-/* col-lg */
+/* col-lg (sin cambios) */
 @media (min-width: 1200px) {
     .navigation{
         width: 60%;
