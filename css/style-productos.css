@@ -1,0 +1,24 @@
+.item-container {
+			display: flex; /* Usar flexbox para alinear elementos */
+			align-items: center; /* Centrar verticalmente la imagen y el texto */
+			gap: 20px; /* Espacio entre la imagen y el texto */
+		}
+		.item-image {
+			width: 150px; /* Tamaño de la imagen */
+			height: auto;
+			border-radius: 8px; /* Opcional: bordes redondeados */
+			flex-shrink: 0; /* Evita que la imagen se encoja */
+		}
+		.text-content {
+			flex-grow: 1; /* Permite que el texto ocupe el espacio restante */
+		}
+
+		/* Estilos para asegurar que las imágenes dentro del panel-body se alineen correctamente */
+		.panel-body .item-container img {
+			float: left;
+			margin-right: 20px;
+			margin-bottom: 10px; /* Espacio inferior si el texto se envuelve */
+		}
+		.panel-body .item-container p {
+			overflow: hidden; /* Limpia el float si es necesario */
+		}

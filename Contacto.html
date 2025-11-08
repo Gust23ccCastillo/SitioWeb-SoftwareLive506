@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Servicio de Contacto</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/modernizr.js"></script>
+    
+    <style>
+        /* Variables de color */
+        :root {
+            --primary-color: #1976D2;
+            --primary-dark: #1565C0;
+            --success-bg: #E8F5E9; /* Verde claro */
+            --success-text: #2E7D32; /* Verde oscuro */
+            --footer-bg: #1976D2; /* Color oscuro para contraste con el tema azul */
+            --footer-text: #fff;
+        }
+
+        /* Estilos Generales */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        .content { flex-grow: 1; padding: 20px; max-width: 600px; margin: 0 auto; width: 100%; }
+        h2 { color: var(--primary-color); }
+        
+        /* Formulario */
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: var(--primary-dark);
+        }
+        button:disabled {
+            background-color: #90CAF9;
+            cursor: not-allowed;
+        }
+
+        /* Mensaje de Estado */
+        #message-status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            border: 1px solid var(--success-text);
+            display: none; 
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .full-reset.footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            margin-top: auto; /* Empuja el footer hacia abajo */
+            width: 100%;
+        }
+        .full-reset.footer-copyright {
+            text-align: center;
+            font-size: 0.9em;
+            padding: 10px 0;
+        }
+        /* Estilos básicos de container/row para simular Bootstrap */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+        .row { display: flex; flex-wrap: wrap; margin-right: -15px; margin-left: -15px; }
+        .col-xs-12 { width: 100%; padding-right: 15px; padding-left: 15px; }
+
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="content">
+        <h2>✉️ Contáctanos</h2>
+        <p>Completa el formulario para poder ponernos en contacto con usted...</p>
+        
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" required> 
+            </div>
+            <div class="form-group">
+                <label for="comment">Comentario:</label>
+                <textarea id="comment" rows="5" required></textarea>
+            </div>
+            <button type="submit" id="submitBtn">Enviar Mensaje</button>
+        </form>
+
+        <div id="message-status"></div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/sendEmail-Contact.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

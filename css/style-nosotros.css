@@ -1,0 +1,23 @@
+.about-section {
+			padding: 40px 0;
+		}
+		.about-title {
+			color: #333;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		.about-text {
+			margin-bottom: 15px;
+			line-height: 1.6;
+		}
+		.highlight {
+			color: #337ab7;
+			font-weight: bold;
+		}
+		.vision-mission-box {
+			background-color: #f9f9f9;
+			border: 1px solid #ddd;
+			padding: 20px;
+			border-radius: 5px;
+			margin-top: 30px;
+		}
